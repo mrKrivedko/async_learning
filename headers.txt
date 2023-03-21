@@ -1,0 +1,9 @@
+Accept-CH: Sec-CH-UA-Platform-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Platform, Sec-CH-UA-Full-Version, Viewport-Width, DPR, Device-Memory, RTT, Downlink, ECT
+Content-Length: 11407
+Content-Type: text/html
+NEL: {"report_to": "network-errors", "max_age": 100, "success_fraction": 0.001, "failure_fraction": 0.1}
+Report-To: { "group": "network-errors", "max_age": 100, "endpoints": [{"url": "https://dr.yandex.net/nel", "priority": 1}, {"url": "https://dr2.yandex.net/nel", "priority": 2}]}
+X-Content-Type-Options: nosniff
+X-Yandex-Captcha: captcha
+X-Yandex-EU-Request: 0
+X-Yandex-Req-Id: 1679382936508520-4037089415569066726-sas3-0953-1d5-sas-l7-balancer-8080-BAL
