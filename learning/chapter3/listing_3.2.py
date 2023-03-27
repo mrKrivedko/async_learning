@@ -15,6 +15,7 @@ try:
     buffer = b''
 
     while buffer[-2:] != b'\r\n':
+        # чтение данных из сокета
         data = connection.recv(2)
         if not data:
             break
@@ -22,6 +23,7 @@ try:
             print(f'Получены данные {data}!')
             buffer = buffer + data
     print(f'Все данные: {buffer}')
+    # отправить все из буффера
     connection.sendall(buffer)
 finally:
     server_socket.close()
