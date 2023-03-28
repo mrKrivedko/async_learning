@@ -65,6 +65,7 @@ async def main():
     server_address = ('127.0.0.1', 8000)
     server_socket.setblocking(False)
     server_socket.bind(server_address)
+    server_socket.listen()
 
     for signame in {'SIGINT', 'SIGTERM'}:
         loop.add_signal_handler(getattr(signal, signame), shutdown)
