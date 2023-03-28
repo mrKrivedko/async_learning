@@ -9,6 +9,7 @@ async def echo(
         connection: socket.socket,
         loop: AbstractEventLoop
 ) -> None:
+    """Сопрограмма обслуживающая клиентский сокет."""
     try:
         while data := await loop.sock_recv(connection, 1024):
             print('got data')
@@ -28,6 +29,7 @@ async def connection_listener(
         server_socket: socket.socket,
         loop: AbstractEventLoop
 ) -> None:
+    """Обслуживание серверного сокета."""
     while True:
         connection, client_address = await loop.sock_accept(server_socket)
         connection.setblocking(False)
@@ -49,6 +51,7 @@ def shutdown():
 async def close_echo_tasks(
         echo_tasks: list[asyncio.Task]
 ) -> None:
+    """Закрытие задач."""
     waiters = [asyncio.wait_for(task, 2) for task in echo_tasks]
     for task in waiters:
         try:
@@ -59,6 +62,7 @@ async def close_echo_tasks(
 
 
 async def main():
+    """Реализация корректной остановки сервера."""
     server_socket = socket.socket()
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
@@ -66,6 +70,8 @@ async def main():
     server_socket.setblocking(False)
     server_socket.bind(server_address)
     server_socket.listen()
+    
+    loop = asyncio.get_running_loop()
 
     for signame in {'SIGINT', 'SIGTERM'}:
         loop.add_signal_handler(getattr(signal, signame), shutdown)
