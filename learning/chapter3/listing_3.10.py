@@ -70,7 +70,7 @@ async def main():
     server_socket.setblocking(False)
     server_socket.bind(server_address)
     server_socket.listen()
-    
+
     loop = asyncio.get_running_loop()
 
     for signame in {'SIGINT', 'SIGTERM'}:
