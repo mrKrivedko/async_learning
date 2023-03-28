@@ -10,11 +10,11 @@ async def echo(
         loop: AbstractEventLoop
 ) -> None:
     try:
-        while data := await loop.sock_recv(connection, 1024)
-        print('got data')
-        if data == 'boom\r\n':
-            raise Exception('Ошибка сети')
-        await loop.sock_sendall(connection, data)
+        while data := await loop.sock_recv(connection, 1024):
+            print('got data')
+            if data == 'boom\r\n':
+                raise Exception('Ошибка сети')
+            await loop.sock_sendall(connection, data)
     except Exception as ex:
         logging.exception(ex)
     finally:
@@ -65,7 +65,7 @@ async def main():
     server_address = ('127.0.0.1', 8000)
     server_socket.setblocking(False)
     server_socket.bind(server_address)
-    
+
     loop: AbstractEventLoop = asyncio.get_running_loop()
     for signame in {'SIGINT', 'SIGTERM'}:
         loop.add_signal_handler(getattr(signal, signame), shutdown)
