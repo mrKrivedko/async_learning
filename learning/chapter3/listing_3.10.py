@@ -69,7 +69,7 @@ async def main():
     loop: AbstractEventLoop = asyncio.get_running_loop()
     for signame in {'SIGINT', 'SIGTERM'}:
         loop.add_signal_handler(getattr(signal, signame), shutdown)
-        await connection_listener(server_socket, loop)
+    await connection_listener(server_socket, loop)
 
 
 loop = asyncio.new_event_loop()
