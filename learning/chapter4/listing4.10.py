@@ -10,17 +10,17 @@ async def main():
     """Изучение поведения wait по умолчанию."""
     async with aiohttp.ClientSession() as session:
         fetchers = [
-            asyncio.create_task(fetch_status(session, 'https://ya.ru')),
-            asyncio.create_task(fetch_status(session, 'https://ya.ru'))
+            asyncio.create_task(fetch_status(session, 'https://example.com')),
+            asyncio.create_task(fetch_status(session, 'https://example.com'))
         ]
-    done, pending = await asyncio.wait(fetchers)
+        done, pending = await asyncio.wait(fetchers)
 
-    print(f'Число завершившихся задач: {len(done)}')
-    print(f'Число ожидающих задач: {len(pending)}')
+        print(f'Число завершившихся задач: {len(done)}')
+        print(f'Число ожидающих задач: {len(pending)}')
 
-    for done_task in done:
-        result = await done_task
-        print(result)
+        for done_task in done:
+            result = await done_task
+            print(result)
 
 
 # asyncio.run(main())
