@@ -18,7 +18,9 @@ def gen_products(
 ) -> list[tuple[str, int]]:
     products = []
     for _ in range(product_to_create):
-        description = [common_words[index] for index in sample(range(1000), 10)]
+        description = [
+            common_words[index] for index in sample(range(1000), 10)
+        ]
         brand_id = randint(brand_id_start, brand_id_end)
         products.append((''.join(description), brand_id))
     return products
