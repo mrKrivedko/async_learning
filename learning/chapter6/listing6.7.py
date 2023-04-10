@@ -30,6 +30,7 @@ def main():
         'googlebooks-eng-all-1gram-20120701-a', encoding='utf-8'
     ) as file:
         lines = file.readlines()
+        print(len(lines))
         end = time.time()
         total = end - start
         print(f'file opened to {total:.4f} seconds!')
