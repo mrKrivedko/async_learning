@@ -78,6 +78,7 @@ async def main(partition_size: int):
                 f'задачи завершились за {(end_reduce - start_reduce):.4f} сек.'
             )
             print(f'atom1c встречается {final_result.get("atom1c")} раз.')
+            print(len(final_result))
             # atom1c встречается 243 раз.
 
             end_futures = time.time()

@@ -39,23 +39,21 @@ def merge_dictionaries(
     return merged
 
 
-def reading(data: TextIO, chunk_size):
+async def reading(data: TextIO, chunk_size):
     """Считываем по частям."""
     contents = []
     count = 0
-    full = 0
-    for line in data:
-        count += 1
-        full += 1
-        # print(f'{count}: {line}')
-        contents.append(line)
-        if line == '':
-            print('pusto')
-            print(full)
-            return contents
-        elif count == chunk_size:
+    finish = False
+    while not finish:
+        line = data.readline()
+        if line:
+            contents.append(line)
+            count += 1
+        if count == chunk_size:
             count = 0
-            print(full)
+            yield contents
+        elif not line:
+            finish = True
             yield contents
 
 
@@ -70,13 +68,9 @@ async def main(
     ) as file:
         final_result = []
         start = time.time()
-        # contents = file.readlines()
-        for contents in reading(file, chunk_size):
-            print(f'длина: {len(contents)}')
-            # print(contents)
+        async for contents in reading(file, chunk_size):
             loop = asyncio.get_running_loop()
             tasks = []
-            start = time.time()
             with concurrent.futures.ProcessPoolExecutor() as pool:
                 for chunk in partition(contents, partition_size):
                     tasks.append(loop.run_in_executor(
@@ -89,16 +83,12 @@ async def main(
                     merge_dictionaries, intermediate_results)
                 final_result.append(reduce_result)
                 contents.clear()
-        print(len(final_result))
-        for r in final_result:
-            print(len(r))
         fin = functools.reduce(merge_dictionaries, final_result)
-        print(len(fin))
         print(f'atom1c встречается {fin.get("atom1c")} раз.')
 
         end = time.time()
-        print(f'время выполнения: {(end - start):.4f} секунд')
+        print(f'время выполнения tasks of pool: {(end - start):.4f} секунд')
 
 
 if __name__ == '__main__':
-    asyncio.run(main(partition_size=800_000, chunk_size=10000_000))
+    asyncio.run(main(partition_size=40_000, chunk_size=43_309_252))
