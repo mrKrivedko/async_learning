@@ -42,6 +42,7 @@ async def main(partition_size: int):
         'googlebooks-eng-all-1gram-20120701-a', encoding='utf-8'
     ) as file:
         contents = file.readlines()
+        print(len(contents))
         loop = asyncio.get_running_loop()
         tasks = []
         start = time.time()
@@ -57,11 +58,11 @@ async def main(partition_size: int):
                 intermediate_results
             )
 
-            print(f'atomicgti встречается {final_result["atom1c"]} раз.')
+            print(f'atom1c встречается {final_result.get("atom1c")} раз.')
 
             end = time.time()
             print(f'время выполнения: {(end - start):.4f} секунд')
 
 
 if __name__ == '__main__':
-    asyncio.run(main(partition_size=42))
+    asyncio.run(main(partition_size=1_000_000))

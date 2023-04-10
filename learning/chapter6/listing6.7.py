@@ -12,10 +12,9 @@ def frequency(lines: list, frequencies: dict):
         word = data[0]
         count = int(data[2])
         if word in frequencies:
-            frequencies[word] += 1
+            frequencies[word] = frequencies[word] + count
         else:
             frequencies[word] = count
-    print(len(frequencies))
 
 
 @timed
@@ -29,6 +28,7 @@ def main():
         'googlebooks-eng-all-1gram-20120701-a', encoding='utf-8'
     ) as file:
         lines = file.readlines()
+        print(len(lines))
         end = time.time()
         total = end - start
         print(f'file opened to {total:.4f} seconds!')
