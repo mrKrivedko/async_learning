@@ -40,7 +40,7 @@ def merge_dictionaries(
 async def reduce(loop, pool, counters, chunk_size) -> dict[str, int]:
     chunks: [List[List[Dict]]] = list(partition(counters, chunk_size))
     reducers = []
-    while len(chunks[0] > 1):
+    while len(chunks[0]) > 1:
         for chunk in chunks:
             reducer = functools.partial(
                 functools.reduce,
