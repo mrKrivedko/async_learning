@@ -57,11 +57,11 @@ async def main(partition_size: int):
                 intermediate_results
             )
 
-            print(f'aadawark встречается {final_result["Aadawark"]} раз.')
+            print(f'atomicgti встречается {final_result["atom1c"]} раз.')
 
             end = time.time()
             print(f'время выполнения: {(end - start):.4f} секунд')
 
 
 if __name__ == '__main__':
-    asyncio.run(main(partition_size=300))
+    asyncio.run(main(partition_size=42))
