@@ -1,9 +1,9 @@
 import functools
 
-from util import timed
+from util import sync_timed
 
 
-@timed
+@sync_timed
 def map_frequency(text: str) -> dict:
     words = text.split(' ')
     words = [word.lower() for word in words]
@@ -17,7 +17,7 @@ def map_frequency(text: str) -> dict:
     return frequencies
 
 
-@timed
+@sync_timed
 def merge_dictionares(
         first: dict[str, int],
         second: dict[str, int]
@@ -39,7 +39,7 @@ lines = [
 ]
 
 
-@timed
+@sync_timed
 def main():
     """Однопоточная модель MapReduce."""
     mapped_results = [map_frequency(line) for line in lines]

@@ -1,24 +1,25 @@
 import time
 
-from util import timed
+from util import sync_timed
 
 
-@timed
+@sync_timed
 def frequency(lines: list, frequencies: dict):
     print('йа думою!')
+    print(len(lines))
 
     for line in lines:
         data = line.split('\t')
         word = data[0]
         count = int(data[2])
         if word in frequencies:
-            frequencies[word] += 1
+            frequencies[word] = frequencies[word] + count
         else:
             frequencies[word] = count
-    print(len(frequencies))
+    print(frequencies.get('atom1c'))
 
 
-@timed
+@sync_timed
 def main():
     """Подсчет частот слов, начинающихся буквой a."""
     print('Экзекуция началась!')
