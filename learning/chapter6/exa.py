@@ -1,9 +1,11 @@
 import asyncio
+from asyncio import Future
 import concurrent.futures
 import functools
 import time
 from typing import TextIO, List, Dict
 
+import aiofiles
 from util import async_timed
 
 
@@ -57,6 +59,9 @@ async def reading(data: TextIO, chunk_size):
             yield contents
 
 
+
+
+
 @async_timed()
 async def main(
         partition_size: int,
@@ -91,4 +96,5 @@ async def main(
 
 
 if __name__ == '__main__':
-    asyncio.run(main(partition_size=40_000, chunk_size=43_309_252))
+    asyncio.run(main(partition_size=250_000, chunk_size=10_000_000)) # 90 sec.
+    # (partition_size=40_000, chunk_size=43_309_252))
