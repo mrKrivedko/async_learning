@@ -3,6 +3,7 @@ from asyncio import Future
 from typing import TextIO, Generator
 
 import aiofiles
+from util import async_timed
 
 
 async def reading(file: str, chunk_size: int):
@@ -28,10 +29,10 @@ def reading_file(file: str):
 google = 'googlebooks-eng-all-1gram-20120701-a'
 words = 'common_words.txt'
 
-
+@async_timed()
 async def main():
     result = []
-    lines = reading_file(words)
+    lines = reading_file(google)
     # async for line in lines:
     #     # print(len(line))
     #     result.append(line)
