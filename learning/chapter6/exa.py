@@ -5,7 +5,7 @@ import functools
 import time
 from typing import TextIO, List, Dict
 
-import aiofiles
+
 from util import async_timed
 
 
