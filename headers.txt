@@ -1,9 +1,20 @@
-Accept-CH: Sec-CH-UA-Platform-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Platform, Sec-CH-UA-Full-Version, Viewport-Width, DPR, Device-Memory, RTT, Downlink, ECT
-Content-Length: 11407
-Content-Type: text/html
-NEL: {"report_to": "network-errors", "max_age": 100, "success_fraction": 0.001, "failure_fraction": 0.1}
-Report-To: { "group": "network-errors", "max_age": 100, "endpoints": [{"url": "https://dr.yandex.net/nel", "priority": 1}, {"url": "https://dr2.yandex.net/nel", "priority": 2}]}
+Server: nginx
+Date: Tue, 25 Apr 2023 04:26:37 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+X-Download-Options: noopen
 X-Content-Type-Options: nosniff
-X-Yandex-Captcha: captcha
-X-Yandex-EU-Request: 0
-X-Yandex-Req-Id: 1679382936508520-4037089415569066726-sas3-0953-1d5-sas-l7-balancer-8080-BAL
+Surrogate-Control: no-store
+Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+Pragma: no-cache
+Expires: 0
+X-DNS-Prefetch-Control: off
+X-XSS-Protection: 1; mode=block
+Content-Security-Policy: default-src 'none'; frame-ancestors https://*.yandex.ru https://yandex.ru https://*.ya.ru https://ya.ru; connect-src 'self'; script-src 'nonce-8bfb334b3623858e2324e4023c3b5aca' 'self'; img-src 'self'
+Set-Cookie: mda2_beacon=1682396797427; Domain=.passport.yandex.ru; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Secure; Path=/, ys=c_chck.2436553868; Domain=.yandex.ru; Secure; Path=/, i=gQq2/19enVt147ASUvjWjxd61Dc4RZSSxs+1on5f3DKIe/M4mTsx/3AgU6ANqwCzUKyzV8mBDft4eN+CDYgLiZgnfh0=; Domain=.yandex.ru; Expires=Fri, 22 Apr 2033 04:26:37 GMT; Secure; HttpOnly; Path=/, yandexuid=7911541771682396797; Domain=.yandex.ru; Expires=Fri, 22 Apr 2033 04:26:37 GMT; Secure; Path=/, mda2_domains=ya.ru; Domain=.passport.yandex.ru; Expires=Tue, 19 Jan 2038 03:14:07 GMT; Secure; Path=/
+Referrer-Policy: origin
+ETag: W/"6c0-RVDcH+fYlXRwqDxCGdvdXs1A2KQ"
+Strict-Transport-Security: max-age=315360000; includeSubDomains
+Content-Encoding: gzip
